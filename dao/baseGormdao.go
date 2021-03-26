@@ -34,16 +34,16 @@ func NewBaseOrmDao(opts ...BaseDaoOption) *BaseGormDao {
 	return basedao
 }
 func (bd *BaseGormDao) init() {
-	dbormOpts := []dbSources.Dboption{
-		dbSources.WithPrintSql(),
+	dbormOpts := []mydao.Dboption{
+		mydao.WithPrintSql(),
 	}
 	if bd.opts.Debug {
 		dbormOpts = append(dbormOpts,
-			dbSources.WithDebug(),
+			mydao.WithDebug(),
 		)
 	}
 	if bd.opts.DataSouce != nil {
-		dbormOpts = append(dbormOpts, dbSources.WithDataSource(bd.opts.DataSouce))
+		dbormOpts = append(dbormOpts, mydao.WithDataSource(bd.opts.DataSouce))
 	}
 
 	//
@@ -54,7 +54,7 @@ func (this *BaseGormDao) InitTableSchema(ent DbEntity) (BaseDB, error) {
 	return this.rootDb.Table(ent), nil
 }
 
-/*func getDataSouces() dbSources.Datasource {
+/*func getDataSouces() mydao.Datasource {
 
 	dbfilepath := "/data/gfyt/sqlite3db"
 	dbfilename := "iot.db"
@@ -62,8 +62,8 @@ func (this *BaseGormDao) InitTableSchema(ent DbEntity) (BaseDB, error) {
 		dbfilename = fmt.Sprintf("iot.%s.db", consts.GFIOT_VERSION)
 	}
 	// 返回nil默认是选择sqlite3
-	return dbSources.NewSqliteDbs(
-		dbSources.WithDbFile(filepath.Join(dbfilepath, dbfilename)),
+	return mydao.NewSqliteDbs(
+		mydao.WithDbFile(filepath.Join(dbfilepath, dbfilename)),
 	)
 	// return nil
 }*/

@@ -16,11 +16,11 @@ import (
 
 type BaseDaoOption func(opts *BaseDaoOptions) error
 type BaseDaoOptions struct {
-	DataSouce dbSources.Datasource
+	DataSouce mydao.Datasource
 	Debug     bool
 }
 
-func WithDataSources(ds dbSources.Datasource) BaseDaoOption {
+func WithDataSources(ds mydao.Datasource) BaseDaoOption {
 	return func(opts *BaseDaoOptions) error {
 		opts.DataSouce = ds
 		return nil
