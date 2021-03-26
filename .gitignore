@@ -1,0 +1,76 @@
+*.iml
+*.swp
+*.ipr
+*.iws
+*.jpg
+.idea/
+*.exe
+*.o
+*.tar.gz
+.tmp/
+tmp/
+*.out
+*.log
+*.logs
+logs/
+output.txt
+
+__pycache__
+debug-*.json
+pkg/
+# wps and office
+~$*.docx
+~$*.doc
+~$*.xls
+~$*.xlsx
+~$*.ppt
+~$*.pptx
+.~lock*
+# wps office
+.ideaDataSources/
+dataSources/
+httpRequests/
+.github/
+
+*.zip
+*.tar
+# c,cpp,go库文件.
+*.so
+*.dll
+*.lib
+*.s
+
+# grpc相关
+
+
+vendor/
+
+# webAssembly 相关
+
+*.wasm
+
+#cpp or c error file.
+core
+*.a
+# 项目环境
+
+*.time
+*.tmp
+
+node_modules/
+
+# 项目程序二进制文件过滤
+_output/
+output/
+
+# 相关文档应该放在同名工程下的xxx-doc仓库,不应该和代码仓库放在一起
+
+*.doc
+*.docx
+*.pdf
+*.ppt
+*.pptx
+.shelf/
+
+_output/
+._*/
