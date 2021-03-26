@@ -1,0 +1,34 @@
+/*
+--------------------------------------------------
+File Name: {{.Fileinfo.Filename}}.go
+Author: {{.Fileinfo.Author}}
+AuthorSite: {{.Fileinfo.Domain}}
+GitSource: {{.Fileinfo.Gitsource}}
+Created Time: {{.Fileinfo.CreateTime}}
+---------------------说明--------------------------
+{{.Fileinfo.DescribeInfo}}
+---------------------------------------------------
+*/
+
+
+package {{.Common.PkgName}}
+
+import (
+"{{.Common.ProjectName}}/dao/basedao"
+dbconfig "{{.Common.ProjectName}}/iotconfig"
+)
+
+type {{.DaoName}}Dao struct {
+*basedao.Base{{.DaoName}}Dao
+}
+
+func  New{{.DaoName}}Dao() *{{.DaoName}}Dao {
+return &{{.DaoName}}Dao{ basedao.NewBase{{.DaoName}}Dao() }
+}
+
+// 使用ioc创建时,自动使用项目的dao配置信息初始化
+func New{{.DaoName}}DaoIoc(config *dbconfig.ProjectDaoConfig) *{{.DaoName}}Dao {
+dao := New{{.DaoName}}Dao()
+dao.Init(config.DaoOptions...)
+return dao
+}

@@ -1,0 +1,1 @@
+{{if .user}}{{.user}}{{`:`}}{{.passwd}}{{`@`}}{{end}}{{`tcp(`}}{{if .host}}{{.host}}{{`:`}}{{.port}}{{end}}{{if .dbName}}{{`)/`}}{{.dbName}}{{end}}
